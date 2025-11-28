@@ -283,7 +283,7 @@ nav ul a {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .menu-toggle {
         display: block;
         position: relative;
@@ -546,4 +546,5 @@ section[id] {
 
 .details-list li {
     margin-top: 8px;
+
 }
