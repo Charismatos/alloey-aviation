@@ -1,0 +1,223 @@
+.form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--accent-gold);
+}
+
+.form h2 {
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-dark);
+}
+
+.form-group input:not([type="radio"]),
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color .3s;
+}
+
+
+.form-group input:not([type="radio"]):focus,
+.form-group textarea:focus {
+    border-color: var(--accent-gold);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(239, 234, 219, 0.9);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.radio-options {
+    display: flex;
+    gap: 25px;
+    padding: 10px 0;
+}
+
+.radio-options label {
+    display: inline-flex;
+    align-items: center;
+    font-weight: normal;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.radio-options input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+
+.submit-button {
+    width: 100%;
+    background-color: var(--accent-gold);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.submit-button:hover {
+    background-color: #968429;
+}
+
+/*For Js Feedback*/
+.message-area {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    display: none;
+}
+
+.message-area.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message-area.error {
+    background-color: #c6b8b8;
+    color: red;
+    border: 1px solid #c6b8b8;
+}
+
+#consent {
+    width: 20px;
+    margin-right: 5px;
+}
+
+
+/* --- 1. Hiding the Native Element --- */
+.native-select {
+    /* Visually hide it, but keep it accessible if needed */
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 1px;
+    height: 1px;
+}
+
+/* --- 2. Styling the Custom Display --- */
+.custom-select-wrapper {
+    position: relative;
+    font-family: Arial, sans-serif;
+    display: inline-block;
+    /* Adjust to full width if needed */
+    width: 100%;
+}
+
+.custom-select-display {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    text-align: left;
+    color: #333;
+    /* Add a subtle chevron icon using ::after */
+    position: relative;
+}
+
+.custom-select-display::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    color: var(--primary-color);
+    transition: transform 0.3s;
+}
+
+/* Active/Focus States (Professionalism) */
+.custom-select-display:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(239, 234, 219, 0.5);
+    border-color: var(--accent-gold);
+}
+
+/* Rotate the chevron when the dropdown is open */
+.custom-select-display.open::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* --- 3. Styling the Custom Options List --- */
+.custom-options-list {
+    position: absolute;
+    top: 100%;
+    /* Position right below the display element */
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    /* Constrain height and make it scrollable */
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: none;
+    /* Hidden by default; toggled by JS */
+}
+
+.custom-options-list.open {
+    display: block;
+}
+
+.custom-options-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover and Selected States (Aesthetic) */
+.custom-options-list li:hover {
+    background-color: var(--accent-gold-light);
+}
+
+.custom-options-list li.selected {
+    background-color: var(--accent-gold);
+    color: white;
+    font-weight: bold;
+}
+
+@media (max-width: 650px) {
+    .form {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    .radio-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

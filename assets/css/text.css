@@ -1,0 +1,117 @@
+/* --- Text Details Section --- */
+.text-details-section {
+    max-width: 900px;
+    /* Constrain width for optimal reading length */
+    margin: 0 auto;
+    padding: 100px 5%;
+    /* Generous vertical padding */
+    text-align: left;
+}
+
+/* --- Headers and Typography --- */
+.text-details-section h2 {
+    font-size: 3em;
+    color: var(--primary-color);
+    /* Deep Aviation Blue */
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    /* Subtle accent line */
+    padding-bottom: 10px;
+}
+
+.text-details-section h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.text-details-section h4 {
+    font-size: 1.4em;
+    color: var(--text-color);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* --- Paragraphs --- */
+.lead-text {
+    font-size: 1.3em;
+    font-weight: 500;
+    /* Slightly bolder than standard */
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.text-block p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* --- Lists (Unordered and Ordered) --- */
+.styled-list {
+    list-style: none;
+    /* Remove default styling */
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.styled-list li {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+}
+
+/* Custom List Markers (Aesthetic Appeal) */
+.styled-list li::before {
+    content: '▶';
+    /* Use a chevron or triangle symbol */
+    color: var(--accent-color);
+    /* The accent color */
+    font-size: 0.8em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Specific styling for Ordered Lists */
+.styled-list.ordered {
+    counter-reset: custom-counter;
+}
+
+.styled-list.ordered li::before {
+    counter-increment: custom-counter;
+    /* Use the counter number with a circle background */
+    content: counter(custom-counter);
+    color: white;
+    background-color: var(--primary-color);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.7em;
+    font-weight: bold;
+    left: -5px;
+    /* Adjust positioning */
+}
+
+/* --- Responsiveness (Ensure readability on small screens) --- */
+@media (max-width: 600px) {
+    .text-details-section h2 {
+        font-size: 2em;
+    }
+
+    .lead-text {
+        font-size: 1.1em;
+    }
+
+    .text-block p,
+    .styled-list li {
+        font-size: 1em;
+        /* Slight reduction for better mobile fit */
+    }
+}

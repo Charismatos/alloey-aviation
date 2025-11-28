@@ -1,0 +1,144 @@
+/* --- Global Color Variables for Alloey Branding --- */
+:root {
+    --primary-color: #004d80;
+    /* Deep Aviation Blue */
+    --accent-color: #ff9900;
+    /* Bright Orange/Amber */
+    --footer-bg: #0a192f;
+    /* Very dark charcoal/black */
+    --text-light: #e0e0e0;
+    /* Off-white for body text */
+    --text-muted: rgba(255, 255, 255, 0.6);
+    /* Muted gray for copyright */
+}
+
+/* --- Base Footer Styling --- */
+.main-footer {
+    background-color: var(--footer-bg);
+    color: var(--text-light);
+    padding: 60px 5% 20px 5%;
+    /* Generous top padding, less bottom padding */
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* --- Responsive Grid Layout (The Professional Structure) --- */
+.footer-grid-container {
+    display: grid;
+    /* Default: Stacked on mobile */
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    /* Center content on mobile */
+}
+
+.footer-grid-container h4 {
+    color: var(--text-light);
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* --- 1. Brand Section --- */
+.footer-brand .footer-logo {
+    color: var(--accent-color);
+    /* Logo highlighted by accent color */
+    font-size: 1.6em;
+}
+
+.footer-brand .brand-mission {
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+/* --- 2. Links Section --- */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    /* Highlight links with accent color */
+}
+
+/* --- 3. Social Icons (Aesthetic Focus) --- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    /* Center icons on mobile */
+    gap: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon .icon {
+    font-size: 1.1em;
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+
+/* Professional Hover Effect */
+.social-icon:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    /* Subtle lift */
+}
+
+.social-icon:hover .icon {
+    color: var(--footer-bg);
+    /* Icon color flips to dark for contrast */
+}
+
+/* --- Bottom Bar --- */
+.footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+.footer-bottom-bar a {
+    color: var(--text-muted);
+    text-decoration: underline;
+}
+
+/* --- Media Query for Desktop/Tablet Layout --- */
+@media (min-width: 768px) {
+    .footer-grid-container {
+        /* Distribute the three columns on desktop */
+        grid-template-columns: 2fr 1fr 1fr;
+        text-align: left;
+        /* Align text left on wide screens */
+    }
+
+    /* Re-align social icons to the left on wide screens */
+    .social-links {
+        justify-content: flex-start;
+    }
+}

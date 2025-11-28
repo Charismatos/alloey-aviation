@@ -1,0 +1,134 @@
+/* --- Carousel Section Base Styles --- */
+.carousel-section {
+    background-color: var(--light-bg, #f4f7f9);
+    padding: 80px 0;
+    /* Padding is vertical; carousel itself is full width */
+    text-align: center;
+}
+
+.carousel-section h2 {
+    color: var(--primary-color, #004d80);
+    margin-bottom: 40px;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    /* Crucial: Hides slides outside the current view */
+    width: 100%;
+    /* Define a max height for desktop aesthetics, images will scale */
+    max-height: 550px;
+    margin: 0 auto;
+}
+
+/* --- Carousel Track and Slides --- */
+.carousel-track {
+    display: flex;
+    /* Lays all slides side-by-side */
+    transition: transform 0.5s ease-in-out;
+    /* Smooth transition for slide movement */
+}
+
+.carousel-slide {
+    min-width: 100%;
+    /* Each slide takes up exactly the container width */
+    flex-shrink: 0;
+    /* Prevents slides from shrinking */
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    /* Ensures image covers the container without distortion and is responsive */
+    object-fit: cover;
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 5%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* --- Navigation Controls (Arrows) --- */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.prev-button {
+    left: 2%;
+    border-radius: 0 5px 5px 0;
+}
+
+.next-button {
+    right: 2%;
+    border-radius: 5px 0 0 5px;
+}
+
+.arrow-icon {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* --- Pagination Dots --- */
+.carousel-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.pagination-dot {
+    height: 10px;
+    width: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.pagination-dot.active {
+    background-color: var(--accent-color, #ff9900);
+    transform: scale(1.2);
+}
+
+/* --- Responsiveness: Mobile Adjustments --- */
+@media (max-width: 600px) {
+    .carousel-container {
+        /* Reduce height on small devices */
+        max-height: 350px;
+    }
+
+    .arrow-icon {
+        font-size: 1.5em;
+        /* Smaller arrows */
+    }
+
+    .slide-caption {
+        font-size: 0.9em;
+        /* Smaller font on caption */
+    }
+}

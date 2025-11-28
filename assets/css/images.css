@@ -1,0 +1,159 @@
+img {
+    /* 1. Ensure the image never exceeds its container width */
+    max-width: 100%;
+    /* 2. Maintain aspect ratio when scaling */
+    height: auto;
+    /* 3. Remove any default bottom margin/spacing from images */
+    display: block;
+}
+
+/* for images within long text */
+/* --- 1. Define the Standard Canvas for ALL Images --- */
+.image-display-wrapper {
+    /* Set a standard aspect ratio (e.g., 4:3) for visual uniformity */
+    aspect-ratio: 4 / 3;
+
+    /* Use Flexbox to handle centering within the canvas */
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+
+    /* Optional: Aesthetic background/border for the frame */
+    background-color: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* --- 2. Control the Image Inside the Wrapper --- */
+.image-display-wrapper img {
+    /* Ensures the image is not stretched or clipped */
+    object-fit: contain;
+
+    /* Prevents the image from exceeding its original smaller size */
+    max-width: 100%;
+    max-height: 100%;
+
+    display: block;
+}
+
+
+/* gallery or card layout where all image containers 
+must have the same dimensions (e.g., all square), 
+use object-fit to prevent distortion. */
+.gallery-image-container {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.gallery-image-container img {
+    width: 100%;
+    height: 100%;
+    /* Fill the container, cropping if necessary */
+    object-fit: cover;
+    /* Optional: Ensure focus remains centered */
+    object-position: center;
+}
+
+/* soft, diffused shadows 
+to lift the image slightly off the background, 
+adding depth without distraction. */
+
+.professional-image {
+    /* Soft, diffused shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    /* Optional: Slight hover effect for interactivity */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.professional-image:hover {
+    /* Lift the image slightly on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* displaying multiple images, */
+.image-grid {
+    display: grid;
+    /* Create three columns with equal width, separated by 30px gap */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsiveness for mobile devices */
+@media (max-width: 768px) {
+    .image-grid {
+        /* Switch to two columns on smaller screens */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* for a specific mood, use subtle, consistent filters 
+or overlays across all photography. This works well for
+administration images to create a unified look. */
+
+.admin-photo {
+    /* Reduces color intensity for a serious, consistent look */
+    filter: saturate(85%) contrast(105%);
+    transition: filter 0.5s;
+}
+
+.admin-photo:hover {
+    /* Restore full color on hover for an interactive element */
+    filter: none;
+}
+
+/* To integrate text (like a name or title) directly onto the image professionally, use a subtle gradient or dark overlay. */
+
+.image-wrapper {
+    position: relative;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    /* Use a gradient for a smooth transition */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-weight: bold;
+    /* Ensure text stands out */
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Define the image aspect ratio before the image loads using
+padding on a wrapper element. This reserves the necessary
+space and prevents the content below the image from
+jumping when the image finally appears. */
+
+/* Image dimensions are 1600px wide by 900px high (16:9 ratio) */
+.image-aspect-ratio-wrapper {
+    position: relative;
+    width: 100%;
+    /* Padding-top = (Height / Width) * 100% = (9 / 16) * 100% = 56.25% */
+    padding-top: 56.25%;
+}
+
+.image-aspect-ratio-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

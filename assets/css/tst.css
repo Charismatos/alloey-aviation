@@ -1,0 +1,45 @@
+/* .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 240px;
+    background-color: var(--primary-med);
+    list-style: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    border-top: 2px solid var(--accent-gold);
+    padding: 10px 0;
+
+    z-index: 10;
+
+
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all .3s ease-in-out;
+
+} */
+
+/* .has-dropdown::after:hover {
+    transform: rotate(-135deg);
+} */
+
+/* .dropdown-menu a:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--accent-gold);
+    padding-left: 25px;
+} */
+
+
+/* JS show dropdown menu */
+/* .dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+} */
+
+/* JS rotate arrow Up */
+/* .dropdown-menu.active .has-dropdown::after {
+    transform: rotate(-135deg);
+} */

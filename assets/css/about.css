@@ -1,0 +1,94 @@
+/* --- CEO Message Block Styling --- */
+.ceo-message-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Stacked on mobile */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 80px auto 0 auto;
+    /* Add vertical space below main text */
+    padding: 40px 5%;
+    background-color: var(--light-bg);
+    /* Use a light contrast color */
+    border-radius: 8px;
+}
+
+/* --- CEO Image Styling --- */
+.ceo-image-container {
+    position: relative;
+    padding-bottom: 30px;
+    /* Space for the detail text below the image */
+}
+
+.ceo-photo {
+    width: 100%;
+    /* Use a fixed aspect ratio for visual consistency (e.g., 4:5 portrait) */
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+.ceo-details {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transform: translateY(50%);
+    /* Push details slightly below the image edge */
+}
+
+.ceo-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 2px;
+}
+
+.ceo-title {
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+/* --- CEO Quote/Text Styling --- */
+.ceo-quote-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center the text vertically within the block */
+}
+
+.ceo-quote-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.ceo-quote-text blockquote {
+    font-size: 1.5em;
+    line-height: 1.4;
+    font-style: italic;
+    color: var(--text-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.ceo-signature {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* --- Responsive Layout for Desktop/Tablet --- */
+@media (min-width: 768px) {
+    .ceo-message-block {
+        /* Standard desktop two-column layout */
+        grid-template-columns: 1fr 2fr;
+        padding: 60px 5%;
+    }
+}

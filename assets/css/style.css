@@ -1,0 +1,549 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-VariableFont_wdth\,wght.ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url('../fonts/OpenSans-VariableFont_wdth\,wght.ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/OpenSans-VariableFont_wdth\,wght.ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ================================================= */
+/* 1. Global Reset and Variables */
+/* ================================================= */
+:root {
+    --primary-color: #004d80;
+    /* Deep Aviation Blue */
+    --accent-color: #ff9900;
+    /* Bright Orange/Amber */
+    --footer-bg: #111111;
+    /* Very dark charcoal/black */
+    --icon-color: #e0e0e0;
+    /* Off-white for readability */
+    --color-dark: #2c3e50;
+    /* Dark Blue/Charcoal (Professionalism) */
+    --color-light: #f4f6f9;
+    /* Off-White/Light Gray (Cleanliness) */
+    --color-text: #333;
+    --primary-dark: #0a192f;
+    /* Deepest Navy */
+    --primary-med: #112240;
+    /* Slightly Lighter Navy */
+    --accent-gold: #d4af37;
+    /* Metallic Gold */
+    --accent-gold-dark: #746312;
+    /* Darker Gold */
+    --accent-gold-light: #efeadb;
+    /* Lighter Gold */
+    --text-light: #e6f1ff;
+    /* Off-white text */
+    --text-dark: #495670;
+    /* Slate gray for body text */
+    --bg-light: #f4f7f6;
+    /* Light section background */
+    --header-height: 80px;
+    /* Using a robust system font stack for performance and cleanliness */
+    --font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+
+
+    --font-heading: 'Roboto', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* html {
+    scroll-behavior: smooth;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--bg-light);
+
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    margin-bottom: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-gold);
+    cursor: pointer;
+}
+
+img {
+    /* 1. Ensure the image never exceeds its container width */
+    max-width: 100%;
+    /* 2. Maintain aspect ratio when scaling */
+    height: auto;
+
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* ================================================= */
+/* 2. Header and Navigation (from Footer structure) */
+/* ================================================= */
+
+header {
+    background-color: var(--primary-dark);
+    color: var(--color-light);
+    height: var(--header-hieght);
+    padding: 1em 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid var(--accent-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-logo-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-name {
+    height: 50px;
+    line-height: 1.5;
+    margin-left: .5rem;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.c-name strong {
+    color: var(--accent-gold);
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-item {
+    position: relative;
+}
+
+nav ul a {
+    color: var(--color-light);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    transition: color 0.3s;
+}
+
+.nav-link {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: background .3s;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    background-color: #34495e;
+    color: var(--accent-gold);
+}
+
+.has-dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.has-dropdown::after {
+    content: "";
+    display: inline-block;
+
+
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+
+
+    margin-left: 10px;
+    margin-bottom: 3px;
+
+
+    transform: rotate(45deg);
+    transition: transform .3s ease;
+}
+
+.has-dropdown::after:hover {
+    transform: rotate(-135deg);
+}
+
+.dropdown-menu {
+
+    /* display: none; */
+
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 240px;
+    background-color: var(--primary-med);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    border-top: 2px solid var(--accent-gold);
+    padding: 10px 0;
+    z-index: 10;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all .3s ease-in-out;
+
+}
+
+.dropdown-menu.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    font-size: 0.9rem;
+    transition: all .2s;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--accent-gold);
+    padding-left: 25px;
+}
+
+.dropdown-menu.active .has-dropdown::after {
+    transform: rotate(-135deg);
+}
+
+
+
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--accent-gold);
+    font-size: 2rem;
+}
+
+.close-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 101;
+        /* for depth i.e. element with higehr positive z-index appears infront on another with less positive z-index */
+    }
+
+    .nav-menu-list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        flex-direction: column;
+        background-color: var(--primary-dark);
+        padding: 80px 20px 20px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        transition: right .3s ease-in-out;
+        z-index: 100;
+        overflow-y: auto;
+    }
+
+    /* For JavaScript Control */
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+
+    /* When the Menu List is active pullit to the inside the Screen to the left */
+    /* From -100 on the right of the screen to 0 towards the left of the screen */
+    .nav-menu-list.active {
+        right: 0;
+    }
+
+    /* When the Menu List is active DON'T Diplay The Menu Icon */
+    .nav-menu-list.active .menu-toggle .open-menu,
+    .menu-toggle.active .open-menu {
+        display: none;
+    }
+
+    /* When the Menu List is active Diplay The Close Icon */
+    .nav-menu-list.active .menu-toggle .close-menu,
+    .menu-toggle.active .close-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        position: static;
+        /* Not absolute on mobile */
+        width: 100%;
+        box-shadow: none;
+        border-top: none;
+        background-color: white;
+        /* Hard hide for JS toggle */
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+
+    .dropdown-menu a {
+        color: #0a192f;
+    }
+
+    .dropdown-menu.active {
+        display: block;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+
+    .for-socials {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+}
+
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+
+/* ================================================= */
+/* 3. Hero Section (First Impression) */
+/* ================================================= */
+
+#hero-section {
+    background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)),
+        url('../images/plane_over_skyscraper.jpg') center/cover no-repeat;
+    /* color: white;
+     */
+    top: var(--header-height);
+    height: 85vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-title {
+    color: var(--text-light);
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    color: #a8b2d1;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    max-width: 37.5rem;
+    line-height: 1.6;
+}
+
+.hero-call-to-action-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--accent-gold);
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 5px;
+    border: 2px solid var(--accent-gold);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.hero-call-to-action-btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+}
+
+/* ================================================= */
+/* 4. Services Overview Section */
+/* ================================================= */
+.cards-section {
+    padding: 100px 5%;
+    background-color: var(--bg-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    color: var(--primary-dark);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-desc {
+    color: var(--text-dark);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cards-grid {
+    display: grid;
+    /* Auto-fit creates responsive columns */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    /* Lift effect on hover */
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+.card-image-container {
+    height: 220px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+    /* Subtle zoom */
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-title {
+    color: var(--primary-dark);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.card-link {
+    color: var(--accent-gold);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.card-link::after {
+    content: "→";
+    transition: margin-left 0.3s;
+}
+
+.card-link:hover::after {
+    margin-left: 12px;
+}
+
+
+.calling-to-action::before {
+    content: " ➡️ ";
+}
+
+.calling-to-action {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+
+
+.details-list {
+    margin-left: 4rem;
+}
+
+.details-list li {
+    margin-top: 8px;
+}
